@@ -9,7 +9,9 @@ function Form(props) {
   };
 
   const onChange = (evt) => {
-    const { name, values, checked, type } = evt.target;
+    const { name, value, checked, type } = evt.target;
+    const valueToUse = type === "checkbox" ? checked : value;
+    change(name, valueToUse);
   };
 
   return (
@@ -26,7 +28,7 @@ function Form(props) {
           <input
             id="name-input"
             value={values.name}
-            oncChange={onChange}
+            onChange={onChange}
             name="name"
             type="text"
           />
@@ -85,6 +87,17 @@ function Form(props) {
             checked={values.veggies}
             onChange={onChange}
           />
+          <label>
+            Special Instructions
+            <input
+              id="special-text"
+              value={values.specialInstructions}
+              onChange={onChange}
+              name="specialInstructions"
+              type="text"
+            />
+          </label>
+          <button id="order-button"> Place Order </button>
         </label>
       </section>
     </form>

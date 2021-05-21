@@ -85,69 +85,62 @@ const App = () => {
   console.log(logo);
   return (
     <>
-      <header>
-        <h1>Lambda Eats</h1>
-        <Link to="/">Home</Link>
-      </header>
-      <section className="picContainer">
-        <h2>Broadway Pizza</h2>
-        <button>
-          <Route exact path="/pizza">
-            <Form
-              values={formValues}
-              submit={formSubmit}
-              change={inputChange} ///it's commented out with yup
-              disabled={disabled}
-              errors={formErrors}
-            />
-          </Route>
-          Ready to Order?
-        </button>
-      </section>
-      <section>
-        <h3>Food delivery in a town near you!</h3>
-        <div className="foodDeliveryContainer">
-          <div className="deliveryOption">
-            <img
-              src="https://images.unsplash.com/photo-1527578054032-8d8f044e013d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              alt="Delivery Option 1"
-            ></img>
-            <h4>DWJ Korean BBQ</h4>
-            <p>$$- Korean BBQ-Korean Food</p>
-            <div className="deliveryDetails">
-              <p className="waitTime"> 40-50 Min</p>
-              <p className="deliveryFee"> $5.99 Delivery Fee</p>
+      <Route exact path="/">
+        <header>
+          <h1>Lambda Eats</h1>
+          <Link to="/">Home</Link>
+        </header>
+        <section className="picContainer">
+          <h2>Broadway Pizza</h2>
+          <Link to="/pizza">
+            <button>Ready to Order?</button>
+          </Link>
+        </section>
+        <section>
+          <h3>Food delivery in a town near you!</h3>
+          <div className="foodDeliveryContainer">
+            <div className="deliveryOption">
+              <img
+                src="https://images.unsplash.com/photo-1527578054032-8d8f044e013d?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fGtvcmVhbiUyMGJicXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                alt="Delivery Option 1"
+              ></img>
+              <h4>DWJ Korean BBQ</h4>
+              <p>$$- Korean BBQ-Korean Food</p>
+              <div className="deliveryDetails">
+                <p className="waitTime"> 40-50 Min</p>
+                <p className="deliveryFee"> $5.99 Delivery Fee</p>
+              </div>
             </div>
-          </div>
 
-          <div className="deliveryOption">
-            <img
-              src="/static/media/Ribs.7726e4d9.jpg"
-              alt="Delivery Option 2"
-            ></img>
-            <h4>Central BBQ</h4>
-            <p>$- TN style BBQ</p>
-            <div className="deliveryDetails">
-              <p className="waitTime"> 30-35 Min</p>
-              <p className="deliveryFee"> $3.99 Delivery Fee</p>
+            <div className="deliveryOption">
+              <img
+                src="/static/media/Ribs.7726e4d9.jpg"
+                alt="Delivery Option 2"
+              ></img>
+              <h4>Central BBQ</h4>
+              <p>$- TN style BBQ</p>
+              <div className="deliveryDetails">
+                <p className="waitTime"> 30-35 Min</p>
+                <p className="deliveryFee"> $3.99 Delivery Fee</p>
+              </div>
             </div>
-          </div>
 
-          <div className="deliveryOption">
-            <img
-              src="https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWV4aWNhbiUyMGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-              alt="Delivery Option 3"
-            ></img>
-            <h4>La Guadalupana</h4>
-            <p>$- Mexican Food</p>
-            <div className="deliveryDetails">
-              <p className="waitTime"> 40 Min</p>
-              <p className="deliveryFee"> $2.99 Delivery Fee</p>
+            <div className="deliveryOption">
+              <img
+                src="https://images.unsplash.com/photo-1582234372722-50d7ccc30ebd?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Nnx8bWV4aWNhbiUyMGZvb2R8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+                alt="Delivery Option 3"
+              ></img>
+              <h4>La Guadalupana</h4>
+              <p>$- Mexican Food</p>
+              <div className="deliveryDetails">
+                <p className="waitTime"> 40 Min</p>
+                <p className="deliveryFee"> $2.99 Delivery Fee</p>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <formSchema formValues={formValues} />
+        </section>
+        <formSchema formValues={formValues} />
+      </Route>
       {/* <Route exact path="/pizza">
         <Form
           values={formValues}
@@ -157,6 +150,15 @@ const App = () => {
           errors={formErrors}
         />
       </Route> */}
+      <Route exact path="/pizza">
+        <Form
+          values={formValues}
+          submit={formSubmit}
+          change={inputChange}
+          disabled={disabled}
+          errors={formErrors}
+        />
+      </Route>
     </>
   );
 };
